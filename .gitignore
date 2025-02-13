@@ -1,0 +1,8 @@
+.vscode
+bin
+obj
+properties
+.Net.csproj
+.Net.sln
+appsettings.Development.json
+schema.js

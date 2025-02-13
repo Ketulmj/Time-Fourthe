@@ -1,0 +1,32 @@
+GET http://localhost:5140/
+
+###
+GET http://localhost:5140/api/users
+
+###
+POST http://localhost:5140/api/users
+Content-Type: application/json
+
+{
+  "UserId": 1,
+  "Name": "Jonny Abraham",
+  "Email": "john.abm@123.com",
+  "Password": "password12",
+  "Role": "Organizer",
+  "StudentOrgId": 0,
+  "TeacherOrgId": 0
+}
+
+###
+PUT http://localhost:5140/api/users
+Content-Type: application/json
+
+{
+  "UserId": 1,
+  "Name": "Jonny",
+  "Email": "john.cena@123.com",
+  "Password": "jonny",
+  "Role": "Teacher",
+  "StudentOrgId": 0,
+  "TeacherOrgId": 101
+}
