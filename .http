@@ -1,32 +1,31 @@
-GET http://localhost:5140/
-
-###
 GET http://localhost:5140/api/users
 
 ###
-POST http://localhost:5140/api/users
+POST  http://localhost:5140/api/create
 Content-Type: application/json
 
 {
-  "UserId": 1,
-  "Name": "Jonny Abraham",
-  "Email": "john.abm@123.com",
-  "Password": "password12",
-  "Role": "Organizer",
-  "StudentOrgId": 0,
-  "TeacherOrgId": 0
+  "Name": "MSU",
+  "Email": "msu@123.com",
+  "Password": "jonny",
+  "Role": "student",    
 }
+
+###
+GET http://localhost:5140/api/data?role=student
 
 ###
 PUT http://localhost:5140/api/users
 Content-Type: application/json
 
 {
-  "UserId": 1,
-  "Name": "Jonny",
-  "Email": "john.cena@123.com",
+  "Name": "MSU",
+  "Email": "msu@123.com",
   "Password": "jonny",
-  "Role": "Teacher",
-  "StudentOrgId": 0,
-  "TeacherOrgId": 101
+  "Role": "organization",
 }
+
+
+
+###
+POST http://localhost:5140/api/assign
