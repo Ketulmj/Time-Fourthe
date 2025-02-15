@@ -1,15 +1,16 @@
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using System.Numerics;
+
 namespace TimeFourthe.Entities {
     public class TimetableData {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
+        public string? tableId { get; set; }
         public required int OrgId { get; set; }
         public required string Class { get; set; }
         public required string Division { get; set; }
         public required int Year { get; set; }
-        public BigInteger StartTime { get; set; }
+        public string? StartTime { get; set; }
         public int HoursPerDay { get; set; }
         public int PeriodDuration { get; set; }
         public int BreakDuration { get; set; }

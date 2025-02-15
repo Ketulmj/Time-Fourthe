@@ -1,31 +1,87 @@
-GET http://localhost:5140/api/users
-
-###
-POST  http://localhost:5140/api/create
+POST http://localhost:5140/api/create
 Content-Type: application/json
 
 {
-  "Name": "MSU",
-  "Email": "msu@123.com",
-  "Password": "jonny",
-  "Role": "student",    
+  "Name": "nh",
+  "Email": "dfsd@45.com",
+  "Password": "pswd",
+  "Role": "teacher",
+  "OrgId": "ORG832345959257"
 }
 
 ###
 GET http://localhost:5140/api/data?role=student
-
 ###
-PUT http://localhost:5140/api/users
+GET http://localhost:5140/api/teachers?orgid=ORG832345959257
+###
+POST http://localhost:5140/api/create-timetable
 Content-Type: application/json
 
 {
-  "Name": "MSU",
-  "Email": "msu@123.com",
-  "Password": "jonny",
-  "Role": "organization",
+  "OrgId": 1,
+  "Class": "10th Grade",
+  "Division": "A",
+  "Year": 2025,
+  "StartTime": "1700000000000000000",
+  "HoursPerDay": 6,
+  "PeriodDuration": 45,
+  "BreakDuration": 15,
+  "LabDuration": 90,
+  "Timetable": {
+    "Monday": [
+      {
+        "StartTime": 900,
+        "Teacher": {
+          "Name": "Mr. John Doe",
+          "Id": "T001"
+        },
+        "Subject": "Mathematics",
+        "IsLab": false
+      },
+      {
+        "StartTime": 945,
+        "Teacher": {
+          "Name": "Ms. Sarah Smith",
+          "Id": "T002"
+        },
+        "Subject": "Physics",
+        "IsLab": true
+      }
+    ],
+    "Tuesday": [
+      {
+        "StartTime": 900,
+        "Teacher": {
+          "Name": "Ms. Anna White",
+          "Id": "T003"
+        },
+        "Subject": "Chemistry",
+        "IsLab": false
+      }
+    ],
+    "Wednesday": null,
+    "Thursday": [
+      {
+        "StartTime": 900,
+        "Teacher": {
+          "Name": "Mr. Robert Brown",
+          "Id": "T004"
+        },
+        "Subject": "English",
+        "IsLab": false
+      }
+    ],
+    "Friday": [
+      {
+        "StartTime": 900,
+        "Teacher": {
+          "Name": "Ms. Emily Davis",
+          "Id": "T005"
+        },
+        "Subject": "Biology",
+        "IsLab": true
+      }
+    ],
+    "Saturday": null
+  }
 }
-
-
-
-###
-POST http://localhost:5140/api/assign

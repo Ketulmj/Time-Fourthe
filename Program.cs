@@ -1,4 +1,4 @@
-using IdGenerator;
+// using IdGenerator;
 using TimeFourthe.Configurations;
 using TimeFourthe.Services;
 
@@ -14,18 +14,17 @@ builder.Services.AddCors(options =>
     });
 });
 
-
-IdGeneratorClass IdGenerator = new IdGeneratorClass();
+// IdGeneratorClass IdGenerator = new IdGeneratorClass();
 // MongoDB Settings
 builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("MongoDbSettings"));
 builder.Services.AddSingleton<UserService>();
+builder.Services.AddSingleton<TimetableService>();
 
 // Controllers
 builder.Services.AddControllers();
-
 var app = builder.Build();
 
-app.MapGet("/", () => IdGenerator.IdGenerator("student"));
+// app.MapGet("/", () => IdGenerator.IdGenerator("student"));
 
 app.UseCors("AllowAll");
 app.MapControllers();

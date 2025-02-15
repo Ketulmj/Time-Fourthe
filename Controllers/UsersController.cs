@@ -16,6 +16,7 @@ namespace TimeFourthe.Controllers
             _userService = userService;
         }
 
+        // For login
         [HttpPost("user")]
         public async Task<IActionResult> GetUsers([FromBody] User user)
         {
@@ -31,21 +32,20 @@ namespace TimeFourthe.Controllers
             return Ok(new {error=true,redirectUrl="/login",message="User not exists",data=userExist});
         }
 
+        // for signup
         [HttpPost("create")]
         public async Task<IActionResult> CreateUser([FromBody] User user)
         {
             await _userService.CreateUserAsync(user);
             return Ok(new { id = user.Id });
         }
-
-        [HttpPut]
-        public async Task<IActionResult> UpdateUser([FromBody] User user)
-        {
-            await _userService.UpdateUserAsync(user);
-            return Ok(user);
+        
+        // get teachers by OrgId
+        [HttpGet("teachers")]
+        public async Task<IActionResult> GetTeachers() {
+            var teacherlist = await _userService.GetTechersByOrgIdAsync(Request.Query["OrgId"].ToString());
+            return Ok(teacherlist);
         }
-
-
 
         [HttpGet("data")]
         public IActionResult GetModel()

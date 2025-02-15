@@ -2,7 +2,6 @@ using MongoDB.Driver;
 using TimeFourthe.Entities;
 using TimeFourthe.Configurations;
 using Microsoft.Extensions.Options;
-using MongoDB.Bson;
 using IdGenerator;
 
 namespace TimeFourthe.Services {
@@ -13,7 +12,7 @@ namespace TimeFourthe.Services {
         {
             var client = new MongoClient(mongoDbSettings.Value.ConnectionString);
             var database = client.GetDatabase(mongoDbSettings.Value.DatabaseName);
-            _usersCollection = database.GetCollection<User>(mongoDbSettings.Value.CollectionName);
+            _usersCollection = database.GetCollection<User>(mongoDbSettings.Value.CollectionName[0]);
         }
 
         public async Task<List<User>> GetUsersAsync() =>
@@ -26,9 +25,8 @@ namespace TimeFourthe.Services {
             user.UserId=new IdGeneratorClass().IdGenerator(user.Role);
             await _usersCollection.InsertOneAsync(user);
         }
-        // check this method (not working)
-        public async Task UpdateUserAsync(User user) {
-            await _usersCollection.UpdateOneAsync(user => user.Id == user.Id, new BsonDocument("$set", user.ToBsonDocument())); 
-        }
+
+        public async Task<List<User>> GetTechersByOrgIdAsync(string orgId) =>
+            await _usersCollection.Find(user => user.OrgId == orgId && user.Role == "teacher").ToListAsync();
     }
 }
