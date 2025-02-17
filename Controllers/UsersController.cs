@@ -31,7 +31,7 @@ namespace TimeFourthe.Controllers
             }
             return Ok(new {error=true,redirectUrl="/login",message="User not exists",data=userExist});
         }
-
+        
         // for signup
         [HttpPost("create")]
         public async Task<IActionResult> CreateUser([FromBody] User user)
@@ -50,8 +50,7 @@ namespace TimeFourthe.Controllers
         [HttpGet("data")]
         public IActionResult GetModel()
         {
-            string role=HttpContext.Request.Query.ToDictionary(x => x.Key, x => x.Value)["role"][0];
-            return Ok(new IdGeneratorClass().IdGenerator(role));
+            return Ok(new { id = "Name" });
         }
     }
 }

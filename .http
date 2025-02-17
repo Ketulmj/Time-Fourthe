@@ -1,13 +1,30 @@
-POST http://localhost:5140/api/create
+GET http://localhost:5140/api/get/auth?id=ORG172452632147799&answer=true
 Content-Type: application/json
 
 {
-  "Name": "nh",
-  "Email": "dfsd@45.com",
+  "Name": "Dhruvi Makwana",
+  "Email": "habibi@45.com",
   "Password": "pswd",
-  "Role": "teacher",
-  "OrgId": "ORG832345959257"
+  "Role": "organization"
 }
+
+###
+POST http://localhost:5140/api/create/pending
+Content-Type: application/json
+
+{
+  "Name": "Dhruvi Makwana",
+  "Email": "cclab01234@gmail.com",
+  "Password": "pswd",
+  "Role": "organization"
+}
+
+
+
+
+
+###
+GET http://localhost:5140/api/get/auth?id=123456789&answer=true
 
 ###
 GET http://localhost:5140/api/data?role=student
@@ -85,3 +102,6 @@ Content-Type: application/json
     "Saturday": null
   }
 }
+
+###
+POST http://localhost:5140/api/send-absent

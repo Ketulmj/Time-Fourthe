@@ -3,8 +3,7 @@ namespace IdGenerator
     public class IdGeneratorClass
     {
         private string keys = "0123456789";
-        private int idLength = 12;
-        public string IdGenerator(string role)
+        public string IdGenerator(string role, int idLength = 12)
         {
             string id = "";
             Random rand = new Random();

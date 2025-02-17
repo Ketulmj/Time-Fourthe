@@ -2,6 +2,7 @@
 using TimeFourthe.Configurations;
 using TimeFourthe.Services;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
@@ -17,8 +18,9 @@ builder.Services.AddCors(options =>
 // IdGeneratorClass IdGenerator = new IdGeneratorClass();
 // MongoDB Settings
 builder.Services.Configure<MongoDbSettings>(builder.Configuration.GetSection("MongoDbSettings"));
-builder.Services.AddSingleton<UserService>();
 builder.Services.AddSingleton<TimetableService>();
+builder.Services.AddSingleton<UserService>();
+builder.Services.AddSingleton<PendingUserService>();
 
 // Controllers
 builder.Services.AddControllers();
