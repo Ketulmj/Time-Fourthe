@@ -1,18 +1,4 @@
-using Org.BouncyCastle.Crypto.Modes;
-
-namespace TimeFourthe.Mails
-{
-    public class Absence
-    {
-        public static void MailOtp()
-        {
-            string teacher = "Ketul mj";
-            string subject = "DSA";
-            string date = DateTime.Now.ToString("d/M/yyyy");
-            string orgName = "Web University";
-            string title = "Urgent : No Class Today – Teacher Absent";
-            string[] recipients = ["cclab01234@gmail.com"];
-            string html = @$"<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang='en'>
 <head>
   <meta charset='UTF-8'>
@@ -20,202 +6,207 @@ namespace TimeFourthe.Mails
   <title>Teacher Absence Notification</title>
   <style>
     /* Reset styles */
-    body, p, h1, h2, div {{
+    body, p, h1, h2, div {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }}
+    }
 
-    body {{
+    body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
       background-color: #111827;
       color: #D1D5DB;
       line-height: 1.5;
       padding: 24px;
-    }}
+    }
 
-    .container {{
+    .container {
       max-width: 600px;
       margin: 0 auto;
       background-color: #1F2937;
       border-radius: 8px;
       overflow: hidden;
-    }}
+    }
 
-    .header {{
+    .header {
       padding: 24px;
       border-bottom: 1px solid #374151;
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }}
+    }
 
-    .logo {{
+    .logo {
       display: flex;
       align-items: center;
       gap: 8px;
       color: #fff;
       text-decoration: none;
-    }}
+    }
 
-    .logo-text {{
+    .logo-text {
       font-size: 20px;
       font-weight: 600;
       color: #fff;
-    }}
+    }
 
-    .portal-link {{
+    .portal-link {
       color: #9CA3AF;
       text-decoration: none;
       padding: 8px 16px;
       border-radius: 6px;
       transition: all 0.2s ease;
-    }}
+    }
 
-    .portal-link:hover {{
+    .portal-link:hover {
       color: #fff;
       background-color: #374151;
-    }}
+    }
 
-    .banner {{
+    .banner {
       background: linear-gradient(to right, #6B21A8, #1E3A8A);
       padding: 21px 24px;
       margin: 24px 0;
       border-radius: 12px;
-    }}
+    }
 
-    .banner-title {{
+    .banner-title {
       font-size: 36px;
       font-weight: bold;
       color: #fff;
-    }}
+    }
 
-    .content {{
+    .content {
       padding: 0 24px 24px;
-    }}
+    }
 
-    .subtitle {{
+    .subtitle {
       font-size: 24px;
       font-weight: 600;
       color: #fff;
       margin-bottom: 24px;
       margin-left: 7px;
-    }}
+    }
 
-    .text {{
+    .text {
       background-color: #1a1f2b;
       padding: 24px;
       border-radius: 12px;
-    }}
+    }
 
-    .highlight {{
+    .highlight {
       color: #A78BFA;
       font-weight: 500;
-    }}
+    }
 
-    .paragraph {{
+    .paragraph {
       margin-bottom: 16px;
-    }}
+    }
 
-    .paragraph:last-child {{
+    .paragraph:last-child {
       margin-bottom: 0;
-    }}
+    }
 
-    .signature {{
+    .signature {
       padding-top: 24px;
       border-top: 1px solid #374151;
       margin-top: 32px;
       text-align: center;
-    }}
+    }
 
-    .footer {{
+    .footer {
       background-color: #111827;
       padding: 24px;
       text-align: center;
       font-size: 14px;
       color: #9CA3AF;
       border-top: 1px solid #374151;
-    }}
+    }
 
-    .footer-links {{
+    .footer-links {
       display: flex;
       justify-content: center;
       gap: 16px;
       margin: 16px 0;
       flex-wrap: wrap;
-    }}
+    }
 
-    .footer-link {{
+    .footer-link {
       color: #A78BFA;
       text-decoration: none;
       padding: 4px 8px;
       border-radius: 4px;
       transition: all 0.2s ease;
-    }}
+    }
 
-    .footer-link:hover {{
+    .footer-link:hover {
       color: #C4B5FD;
       background-color: #374151;
-    }}
+    }
 
-    .divider {{
+    .divider {
       color: #4B5563;
-    }}
+    }
+    #t4logo{
+      width: 60px;
+      height: 60px;
+      margin-top: 1rem;
+    }
 
-    @media (max-width: 640px) {{
-      body {{
+    @media (max-width: 640px) {
+      body {
         padding: 12px;
-      }}
+      }
 
-      .container {{
+      .container {
         border-radius: 12px;
-      }}
+      }
 
-      .header {{
+      .header {
         padding: 16px;
-      }}
+      }
 
-      .banner {{
+      .banner {
         margin: 16px;
         padding: 24px 20px;
-      }}
+      }
 
-      .banner-title {{
+      .banner-title {
         font-size: 28px;
-      }}
+      }
 
-      .content {{
+      .content {
         padding: 0 16px 16px;
-      }}
+      }
 
-      .subtitle {{
+      .subtitle {
         font-size: 20px;
         margin-bottom: 20px;
-      }}
+      }
 
-      .text {{
+      .text {
         padding: 20px;
-      }}
+      }
 
-      .footer {{
+      .footer {
         padding: 20px 16px;
-      }}
+      }
 
-      .footer-links {{
+      .footer-links {
         gap: 12px;
-      }}
+      }
 
-      .divider {{
+      .divider {
         display: none;
-      }}
+      }
 
-      .footer-links a {{
+      .footer-links a {
         background-color: #1F2937;
         padding: 8px 16px;
         border-radius: 6px;
         width: 100%;
-      }}
-    }}
+      }
+    }
   </style>
 </head>
 <body>
@@ -264,6 +255,7 @@ namespace TimeFourthe.Mails
         <div class='signature'>
           <p style='color: #A78BFA; font-weight: 500; margin-bottom: 8px;'>Best Regards</p>
           <p style='color: #fff;'>Web University</p>
+          <img id="t4logo" src="../Assets/Logo.png"></img>
         </div>
       </div>
     </div>
@@ -271,9 +263,4 @@ namespace TimeFourthe.Mails
   
   </div>
 </body>
-</html>";
-
-            MailSender.SendMail(recipients, html, title);
-        }
-    }
-}
+</html>

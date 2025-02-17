@@ -12,9 +12,6 @@ namespace TimeFourthe.Mails
             string senderName = "Ketul Makwana";
             string senderPassword = "ujzr qzgc tcao pbwl"; // Use an App Password for Gmail
 
-            // Random random = new Random();
-            // string otpCode = random.Next(100000, 999999).ToString(); // Generate 6-digit OTP
-
             try
             {
                 using (var smtp = new SmtpClient())
